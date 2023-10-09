@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+input{
+    width: 366px;
+    height: 52.08px;
+    border: none;        
+    border-radius: 10px;
+    filter: drop-shadow(rgba(164, 164, 164, 0.82) 0px 0px 4px); 
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #A4A4A4;
+    text-indent: 22px;
+}
+
+.outer--input--container{  
+    display: flex;
+    justify-content: center; 
+    margin-top: 37px;
+}
+.input--container{
+    width: fit-content;
+    position: relative;
+    display: flex;
+    align-items: center;    
+}
+
+.searchicon{
+    width: 22px;
+    height: 21.48px;
+    position: absolute;
+    right: 20px;
+}
+
+.outer--exploreStocks--container{
+    margin-top: 73px;
+    margin-left: 299px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+
+.header--exploreStocks{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+}
+
+.exploreStocks--container{
+    width: 173px;
+    height: 111px;
+    box-shadow: 0px 0px 4px rgba(164, 164, 164, 0.82);
+    border-radius: 10px;
+}
+
+.txt-default{        
+    padding: 0;
+    margin: 0;    
+    position: relative;
+}
+
+.content--info{
+    display: flex;
+    flex-direction: column; 
+    gap: 5px;       
+}
+
+.content--info--symbol{    
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 22px;        
+}

@@ -18,7 +18,7 @@ export default function Homepage(){
         return(
             <TrendingStocksElement stock={stock}/>
         )
-    })       
+    })       //test
     return(
         <div>
             <div className='outer--input--container'>

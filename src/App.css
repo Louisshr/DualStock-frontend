@@ -1,5 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 *{
   box-sizing: border-box;
   margin: 0;
-  padding: 0; 
+  padding: 0;   
+}
+
+/* -- NAVBAR -- */
+
+header{
+  height: 33px;    
+  display: flex;       
+  justify-content: center;
+  background-color: #D6E6F2;
+  align-items: center; 
+}
+
+p{
+  padding: 0px;
+  margin: 0px;   
+  cursor: pointer;
+}
+
+.navbar--logo, a, p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;        
+}
+
+p, nav{
+  position: absolute;
+}
+p, a{
+  color: black;
+}
+
+.navbar--logo{    
+  left: 25px; 
+  color: #699EDA;
+}
+
+.navbar--logout{
+  right: 33px;
+}
+
+.nav_links{
+  list-style: none;
+}
+
+.nav_links li{
+  display: inline-block;  
+}
+
+a {
+  text-decoration: none;  
+}
+
+ul{    
+  padding: 0;   /* the css imported from bootstrap overides "ul"; it adds padding and margin. Therefore, padding and margin has been set to 0 */
+  margin: 0;
+  display: flex;
+  gap: 33px;
+}
+
+
+/* -- HOMEPAGE -- */
+
+input{
+  width: 366px;
+  height: 52.08px;
+  border: none;        
+  border-radius: 10px;
+  filter: drop-shadow(rgba(164, 164, 164, 0.82) 0px 0px 4px); 
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #A4A4A4;
+  text-indent: 22px;
+}
+
+.outer--input--container{  
+  display: flex;
+  justify-content: center; 
+  margin-top: 37px;
+}
+.input--container{
+  width: fit-content;
+  position: relative;
+  display: flex;
+  align-items: center;    
+}
+
+.searchicon{
+  width: 22px;
+  height: 21.48px;
+  position: absolute;
+  right: 20px;
+}
+
+/* -- EXPLORE STOCKS -- */
+
+.exploreStocks--container{
+  margin-left: 299px;
+}
+
+.exploreStocks--container--scrollBar{      
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.exploreStocks--container--scrollBar::-webkit-scrollbar{
+  width: 0px;
+  background: transparent;
+}
+
+.exploreStocks--container--cards{
+  margin-top: 34px; 
+  display: flex;
+  gap: 21px;        
+  width: 765px;
+  padding: 2px;  
+}
+
+.header--default{
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 26px;      
+}
+
+.header--exploreStocks{
+  margin-top: 73px;
+}
+
+.header--trendingStocks{  
+  margin-top: 55px;
+}
+
+.exploreStocks--card{
+  width: 173px;
+  height: 111px;
+  box-shadow: 0px 0px 4px rgba(164, 164, 164, 0.82);
+  border-radius: 10px;
+}
+
+.txt-default{        
+  padding: 0;
+  margin: 0;    
+  position: relative;
+}
+
+.content--container{    
+  margin-left: 18px;
+  margin-top: 11px;   
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.content--info{
+  display: flex;
+  flex-direction: column;             
+}
+
+.content--info--symbol{    
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 22px;        
+}
+
+.content--info--longname{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.content--numbers{    
+  display: flex;
+  align-items: center;
+  gap: 23px;    
+}
+
+.content--numbers--default{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;    
+  /*color: #E8464A;*/
+}
+
+/* -- TRENDING STOCKS -- */
+
+.trendingStocks--container{
+  margin-left: 299px;
+}
+
+.trendingStocks--container--table{  
+  margin-top: 34px;
+  width: 832px; 
+  height: 222px;
+  overflow-y: auto;
+  overflow-x: hidden;      
+}
+
+/* -- code below makes scroll-bar invisible -- */
+/*
+.trendingStocks--container::-webkit-scrollbar{
+  width: 0px;
+  background: transparent;
+}
+*/
+
+.table--header--default{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;  
+}
+
+.trendingStocks--row--width, .trendingStocks--symbol--width{
+  width: 52px; 
+}
+
+.trendingStocks--name--style{
+  width: 158px;  
+}
+
+.trendingStocks--changePercent--width{
+  width: 181px;
+}
+
+.trendingStocks--text--default{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.trendingStocks--symbol--minimized{
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.trendingStocks--minimized--name{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+.trendingStocks--text--style{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.trendingStocks--minimized--display{
+  display: none;  
+}
+
+.trendingStocks--symbol--minimized--symbol{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  line-height: 16px;
+}
+
+
+/* -- EXPLORE STOCKS (width of page <= 1067px) -- */
+
+@media only screen and (max-width: 1430px){
+  .exploreStocks--container, .trendingStocks--container{
+    margin-left: 230px;
+  }
+}
+
+@media only screen and (max-width: 1430px){
+  .exploreStocks--container, .trendingStocks--container{
+    margin-left: 230px;
+  }
+}
+
+@media only screen and (max-width: 1222px){
+  .exploreStocks--container, .trendingStocks--container{
+    margin-left: 150px;
+  }
+}
+
+@media only screen and (max-width: 1050px){
+  .exploreStocks--container, .trendingStocks--container{
+    margin-left: 100px;
+  }
+}
+
+@media only screen and (max-width: 972px){
+  .exploreStocks--container, .trendingStocks--container{
+    margin-left: 0px;
+  }
+  .exploreStocks--container--cards, .trendingStocks--container, .header--exploreStocks{
+    margin-left: 12.5px;
+  }    
+  .trendingStocks--container--table{
+    width: fit-content;
+  }   
+  .trendingStocks--row--width{
+    width: 80px; 
+  }
+  .trendingStocks--changePercent--width{
+    width: 100px;
+  }
+  .trendingStocks--symbol--width{
+    width: 182px;
+  }
+  .trendingStocks--minimized--display{
+    display: block;  
+  }  
+  .trendingStocks--name--style, .trendingStocks--text--style{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 502px){
+  .trendingsStocks--change--style, .trendingStocks--price--style{
+    display: none;
+  }  
+  .trendingStocks--container--table{
+    width: 100%;
+  }
 }

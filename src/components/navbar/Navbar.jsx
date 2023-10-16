@@ -1,10 +1,8 @@
-import './Navbar.css'
-
 export default function Navbar(){
     return(
         <header>
             <p className="navbar--logo">DualStock</p>
-            <nav>                
+            <nav className="navtest">                
                 <ul className="nav_links">         
                     <li><a href="#">Portfolio</a></li>
                     <li><a href="#">Account</a></li>

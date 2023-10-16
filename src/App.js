@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Navbar from "./components/navbar/Navbar";
 import Homepage from "./components/homepage/Homepage";
@@ -5,8 +6,8 @@ import Homepage from "./components/homepage/Homepage";
 function App() {
   return (
     <div>
-      <Navbar/>
-      <Homepage/>
+      <Navbar/>    
+      <Homepage/>    
     </div>
   );
 }

@@ -220,15 +220,15 @@ input{
   font-size: 15px;  
 }
 
-.trendingStocks--row--width, .trendingStocks--symbol--width{
+.trendingStocks--change--th, .trendingStocks--symbol--th, .trendingStocks--price--th{
   width: 52px; 
 }
 
-.trendingStocks--name--style{
+.trendingStocks--name--th{
   width: 158px;  
 }
 
-.trendingStocks--changePercent--width{
+.trendingStocks--changePercent--th{
   width: 181px;
 }
 
@@ -304,25 +304,25 @@ input{
   .trendingStocks--container--table{
     width: fit-content;
   }   
-  .trendingStocks--row--width{
+  .trendingStocks--change--th, .trendingStocks--price--th{
     width: 80px; 
   }
-  .trendingStocks--changePercent--width{
+  .trendingStocks--changePercent--th{
     width: 100px;
   }
-  .trendingStocks--symbol--width{
+  .trendingStocks--symbol--th{
     width: 182px;
   }
   .trendingStocks--minimized--display{
     display: block;  
   }  
-  .trendingStocks--name--style, .trendingStocks--text--style{
+  .trendingStocks--name--th, .trendingStocks--text--style{
     display: none;
   }
 }
 
 @media only screen and (max-width: 502px){
-  .trendingsStocks--change--style, .trendingStocks--price--style{
+  .trendingsStocks--change--display, .trendingStocks--price--display{
     display: none;
   }  
   .trendingStocks--container--table{

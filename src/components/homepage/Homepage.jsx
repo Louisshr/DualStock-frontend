@@ -18,7 +18,7 @@ export default function Homepage(){
         return(
             <TrendingStocksElement stock={stock}/>
         )
-    })       //test
+    })      
     return(
         <div>
             <div className='outer--input--container'>
@@ -44,11 +44,11 @@ export default function Homepage(){
                     <Table hover responsive>
                     <thead style={{border: "hidden"}}>
                         <tr style={{backgroundColor: "rgba(164, 164, 164, 0.05)"}}>
-                        <th style={{backgroundColor: 'transparent'}} className='table--header--default trendingStocks--symbol--width'>Symbol</th>
-                        <th style={{backgroundColor: 'transparent'}} className='table--header--default trendingStocks--name--style'>Name</th>
-                        <th style={{backgroundColor: 'transparent', whiteSpace: 'nowrap'}} className='table--header--default trendingStocks--row--width trendingStocks--price--style'>Price (Intraday)</th>
-                        <th style={{backgroundColor: 'transparent'}} className='table--header--default trendingStocks--row--width trendingsStocks--change--style'>Change</th>
-                        <th style={{backgroundColor: 'transparent'}} className='table--header--default trendingStocks--changePercent--width'>Change (%)</th>                        
+                        <th style={{backgroundColor: 'transparent'}} className='table--header--default trendingStocks--symbol--th'>Symbol</th>
+                        <th style={{backgroundColor: 'transparent'}} className='table--header--default trendingStocks--name--th'>Name</th>
+                        <th style={{backgroundColor: 'transparent', whiteSpace: 'nowrap'}} className='table--header--default trendingStocks--price--th trendingStocks--price--display'>Price (Intraday)</th>
+                        <th style={{backgroundColor: 'transparent'}} className='table--header--default trendingStocks--change--th trendingsStocks--change--display'>Change</th>
+                        <th style={{backgroundColor: 'transparent'}} className='table--header--default trendingStocks--changePercent--th'>Change (%)</th>                        
                         </tr>
                     </thead>  
                     <tbody>

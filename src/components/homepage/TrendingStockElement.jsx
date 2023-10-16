@@ -20,8 +20,8 @@ export default function TrendingStocksElement(props){
                 </div>
             </td>
             <td className="trendingStocks--text--style">{props.stock.longName}</td>
-            {valueOK && <td className="trendingStocks--text--default trendingStocks--price--style" style={defaultStyles}>{props.stock.value}</td>}
-            {changeOK && <td className="trendingStocks--text--default trendingsStocks--change--style" style={defaultStyles}>{props.stock.change}</td>}
+            {valueOK && <td className="trendingStocks--text--default trendingStocks--price--display" style={defaultStyles}>{props.stock.value}</td>}
+            {changeOK && <td className="trendingStocks--text--default trendingsStocks--change--display" style={defaultStyles}>{props.stock.change}</td>}
             {changePercentOK && <td className="trendingStocks--text--default" style={defaultStyles}>{props.stock.changePercent}%</td>}
         </tr>  
     )

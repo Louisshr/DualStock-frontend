@@ -232,7 +232,7 @@ input{
   width: 181px;
 }
 
-.trendingStocks--text--default{
+.tableRow--text--default{
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 15px;
@@ -268,7 +268,91 @@ input{
 }
 
 
-/* -- EXPLORE STOCKS (width of page <= 1067px) -- */
+/* -- STOCK-GAINERS  -- */
+
+.gainerAndLoser--container{
+  margin-left: 299px;
+  display: flex;  
+  margin-bottom: 100px;
+}
+
+.header--gainer{
+  margin-top: 55px;
+  color: #3DAE23;
+}
+
+.gainer--table{
+  width: 394px;
+  max-height: 249px;
+  margin-top: 34px;
+  overflow-y: auto;  
+}
+
+.gainer--table--element{
+  table-layout: fixed;
+}
+
+#gainer--override--bootstrap .gainer--marked--th{
+  padding-right: 0;
+  width: 181px;  
+}
+
+#gainer--override--bootstrap .gainer--price--th{
+  padding-left: 0;
+  padding-right: 0;
+  width: 119px;    
+}
+
+#gainer--override--bootstrap .gainer--change--th{
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;  
+}
+
+.test2{
+  position: absolute;
+  width: 112px;    
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+gainer--cells{
+  width: inherit;
+}
+
+.gainer--marked--div{ 
+  position: relative;
+  display: flex;  
+  flex-direction: column;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+
+#gainer--override--bootstrap .gainer--marked--longname{
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+}
+
+#gainer--override--bootstrap .position--relative{
+  position: relative;
+}
+
+#gainer--override--bootstrap .gainer--price--td, #gainer--override--bootstrap .gainer--change--td{
+  position: relative;
+  padding-left: 0;
+  width: inherit;
+}
+
+#gainer--override--bootstrap .gainer--price--td--text, #gainer--override--bootstrap .gainer--change--td--text{
+  position: absolute;
+  bottom: 0;
+  padding: inherit;
+}
+
+/* -- RESPONSIVE -- */
 
 @media only screen and (max-width: 1430px){
   .exploreStocks--container, .trendingStocks--container{

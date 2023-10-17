@@ -13,16 +13,16 @@ export default function TrendingStocksElement(props){
 
     return(
         <tr>
-            <td className="trendingStocks--text--default" style={{whiteSpace: 'nowrap'}}>
+            <td className="tableRow--text--default" style={{whiteSpace: 'nowrap'}}>
                 <div className="trendingStocks--symbol--minimized">
                     <p className="trendingStocks--symbol--minimized--symbol">{props.stock.symbol}</p>
                     <p className="trendingStocks--symbol--minimized--symbol trendingStocks--minimized--name trendingStocks--minimized--display">{props.stock.longName}</p>
                 </div>
             </td>
             <td className="trendingStocks--text--style">{props.stock.longName}</td>
-            {valueOK && <td className="trendingStocks--text--default trendingStocks--price--display" style={defaultStyles}>{props.stock.value}</td>}
-            {changeOK && <td className="trendingStocks--text--default trendingsStocks--change--display" style={defaultStyles}>{props.stock.change}</td>}
-            {changePercentOK && <td className="trendingStocks--text--default" style={defaultStyles}>{props.stock.changePercent}%</td>}
+            {valueOK && <td className="tableRow--text--default trendingStocks--price--display" style={defaultStyles}>{props.stock.value}</td>}
+            {changeOK && <td className="tableRow--text--default trendingsStocks--change--display" style={defaultStyles}>{props.stock.change}</td>}
+            {changePercentOK && <td className="tableRow--text--default" style={defaultStyles}>{props.stock.changePercent}%</td>}
         </tr>  
     )
 }
@@ -43,5 +43,3 @@ function isNumber(obj){
     }
     return false;
 }
-
-/*<td className="trendingStocks--text--default">{props.stock.symbol}</td> */

@@ -27,15 +27,22 @@ export default function Homepage(){
 
     const stockGainerElements = stockGainerData.stockGainers.map(stock => {
         return(
-            <GainersLosersElement showStockGainers={true} stock={stock}/>
+            <GainersLosersElement key={stock.symbol} showStockGainers={true} stock={stock}/>
         )
     })
 
     const stockLoserElements = stockLoserData.stockLosers.map(stock => {
         return(
-            <GainersLosersElement showStockGainers={false} stock={stock}/>
+            <GainersLosersElement key={stock.symbol} showStockGainers={false} stock={stock}/>
         )
     })
+
+    React.useEffect(() => {
+        async function getWorld(){
+            console.log("hei fra useEffect");
+        }
+        getWorld();
+    },[])
 
     return(
         <div>

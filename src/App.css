@@ -273,6 +273,7 @@ input{
 .gainerAndLoser--container{
   margin-left: 299px;
   display: flex;  
+  gap: 45px;
   margin-bottom: 100px;
 }
 
@@ -352,28 +353,29 @@ gainer--cells{
   padding: inherit;
 }
 
+/* -- STOCK-LOSER  -- */
+
+.header--loser{
+  margin-top: 55px;
+  color: #E8464A;
+}
+
 /* -- RESPONSIVE -- */
 
 @media only screen and (max-width: 1430px){
-  .exploreStocks--container, .trendingStocks--container{
-    margin-left: 230px;
-  }
-}
-
-@media only screen and (max-width: 1430px){
-  .exploreStocks--container, .trendingStocks--container{
+  .exploreStocks--container, .trendingStocks--container, .gainerAndLoser--container{
     margin-left: 230px;
   }
 }
 
 @media only screen and (max-width: 1222px){
-  .exploreStocks--container, .trendingStocks--container{
+  .exploreStocks--container, .trendingStocks--container, .gainerAndLoser--container{
     margin-left: 150px;
   }
 }
 
 @media only screen and (max-width: 1050px){
-  .exploreStocks--container, .trendingStocks--container{
+  .exploreStocks--container, .trendingStocks--container, .gainerAndLoser--container{
     margin-left: 100px;
   }
 }
@@ -382,7 +384,7 @@ gainer--cells{
   .exploreStocks--container, .trendingStocks--container{
     margin-left: 0px;
   }
-  .exploreStocks--container--cards, .trendingStocks--container, .header--exploreStocks{
+  .exploreStocks--container--cards, .trendingStocks--container, .header--exploreStocks, .gainerAndLoser--container{
     margin-left: 12.5px;
   }    
   .trendingStocks--container--table{
@@ -395,7 +397,7 @@ gainer--cells{
     width: 100px;
   }
   .trendingStocks--symbol--th{
-    width: 182px;
+    width: 182px;    
   }
   .trendingStocks--minimized--display{
     display: block;  
@@ -403,13 +405,43 @@ gainer--cells{
   .trendingStocks--name--th, .trendingStocks--text--style{
     display: none;
   }
+  .gainerAndLoser--container{
+    flex-direction: column;
+    gap: 0px;
+  }
 }
 
 @media only screen and (max-width: 502px){
   .trendingsStocks--change--display, .trendingStocks--price--display{
     display: none;
   }  
-  .trendingStocks--container--table{
+  .trendingStocks--container--table, .gainer--table{
     width: 100%;
+  }
+  .gainer--table--element{
+    table-layout: initial;
+  }
+
+  #gainer--override--bootstrap .gainer--marked--th{    
+    width: 182px;  
+  }
+
+  .gainer--price--th, .gainer--price--td{
+    display: none; 
+  }
+
+  #gainer--override--bootstrap .gainer--change--th{    
+    padding-left: 8px;
+    width: 100px;  
+  }
+
+  #gainer--override--bootstrap .gainer--change--td{
+    padding-left: 8px;
+  }
+
+  #gainer--override--bootstrap .gainer--price--td--text, #gainer--override--bootstrap .gainer--change--td--text{
+    position: absolute;
+    bottom: 0;
+    padding-left: 0;    
   }
 }

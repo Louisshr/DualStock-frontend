@@ -2,6 +2,7 @@ import React from 'react';
 import Card from './Card';
 import data from './data.js';
 import gainerData from './gainerData.js';
+import loserData from './loserData.js';
 import Table from 'react-bootstrap/Table';
 import TrendingStocksElement from './TrendingStockElement';
 import GainersLosersElement from './GainersLosersElement';
@@ -10,6 +11,7 @@ import GainersLosersElement from './GainersLosersElement';
 export default function Homepage(){
     const[stockData, setStockData] = React.useState(data)
     const[stockGainerData, setStockGainerData] = React.useState(gainerData);  
+    const[stockLoserData, setStockLoserData] = React.useState(loserData);  
     
     const cardElements = stockData.trendingStocks.map(stock => {
         return(
@@ -26,6 +28,12 @@ export default function Homepage(){
     const stockGainerElements = stockGainerData.stockGainers.map(stock => {
         return(
             <GainersLosersElement showStockGainers={true} stock={stock}/>
+        )
+    })
+
+    const stockLoserElements = stockLoserData.stockLosers.map(stock => {
+        return(
+            <GainersLosersElement showStockGainers={false} stock={stock}/>
         )
     })
 
@@ -85,23 +93,24 @@ export default function Homepage(){
                         </Table> 
                     </div>
                 </div>
+                <div className='gainer--container'>
+                    <h1 className='header--default header--loser'>Losers</h1>
+                    <div id='gainer--override--bootstrap' className='gainer--table'>
+                        <Table hover responsive className='gainer--table--element'>
+                            <thead style={{border: "hidden"}}>
+                                <tr style={{backgroundColor: "rgba(164, 164, 164, 0.05)"}}>
+                                    <th style={{backgroundColor: 'transparent'}} className='table--header--default gainer--marked--th'>Marked</th>
+                                    <th style={{backgroundColor: 'transparent', whiteSpace: 'nowrap'}} className='table--header--default gainer--price--th'>Price (Intraday)</th>
+                                    <th style={{backgroundColor: 'transparent', whiteSpace: 'nowrap'}} className='table--header--default gainer--change--th'>Change (%)</th>                                                        
+                                </tr>
+                            </thead> 
+                            <tbody>                            
+                                {stockLoserElements}
+                            </tbody>
+                        </Table> 
+                    </div>
+                </div>
             </div>                     
         </div>
     )
 }
-/*
-<tr className='position--relative'>                                                            
-                                    <td className='gainer--cells'>
-                                        <div className='gainer--marked--div'>
-                                            <p className='tableRow--text--default position--relative'>AAPL</p>
-                                            <p className='gainer--marked--longname'>lorem ipsum apple</p>
-                                        </div>
-                                    </td>                                                                                              
-                                    <td className='gainer--price--td'>       
-                                        <p className='gainer--price--td--text'>4,09</p>                                                                                                                                        
-                                    </td> 
-                                    <td className='gainer--change--td'>       
-                                        <p className='gainer--change--td--text'>4,09</p>                                                                                                                                        
-                                    </td>                                                                                                                               
-                                </tr> 
-*/

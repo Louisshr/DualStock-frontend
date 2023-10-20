@@ -1,6 +1,6 @@
 export default function GainersLosersElement(props){
-    // if rendering stock gainers; numbers will be green
-    // if rendering stock losers; numbers will be red
+    // if rendering stock GAINERS; numbers will be green
+    // if rendering stock LOSERS; numbers will be red
     const performanceIndicatorColor = {'color': props.showStockGainers ? "#3DAE23" : "#E8464A"}    
     return(
         <tr className='position--relative'>                                                            

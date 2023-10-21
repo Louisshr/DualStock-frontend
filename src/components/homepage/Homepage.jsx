@@ -1,18 +1,21 @@
 import React from 'react';
 import Card from './Card';
-import data from './data.js';
+//import data from './data.js';
 import gainerData from './gainerData.js';
 import loserData from './loserData.js';
 import Table from 'react-bootstrap/Table';
 import TrendingStocksElement from './TrendingStockElement';
 import GainersLosersElement from './GainersLosersElement';
+import { CreateExploreStocksCards } from './homepageUtils'; 
 
 
 export default function Homepage(){
-    const[stockData, setStockData] = React.useState(data)
+    const[stockData, setStockData] = React.useState(null)
+    const[exploreStockElements, setExploreStockElements] = React.useState([]);
+    const[trendingStocksElements, setTrendingStocksElements] = React.useState([]);
     const[stockGainerData, setStockGainerData] = React.useState(gainerData);  
     const[stockLoserData, setStockLoserData] = React.useState(loserData);  
-    
+    /*
     const cardElements = stockData.trendingStocks.map(stock => {
         return(
             <Card key={stock.symbol} stock={stock}/>
@@ -23,8 +26,9 @@ export default function Homepage(){
         return(
             <TrendingStocksElement key={stock.symbol} stock={stock}/>
         )
-    })      
-
+    })      */
+    
+    
     const stockGainerElements = stockGainerData.stockGainers.map(stock => {
         return(
             <GainersLosersElement key={stock.symbol} showStockGainers={true} stock={stock}/>
@@ -35,14 +39,30 @@ export default function Homepage(){
         return(
             <GainersLosersElement key={stock.symbol} showStockGainers={false} stock={stock}/>
         )
-    })
+    })    
 
-    React.useEffect(() => {
-        async function getWorld(){
-            console.log("hei fra useEffect");
-        }
-        getWorld();
-    },[])
+    React.useEffect(() => {        
+        fetch("https://localhost:7166/Stock/test",{
+            method: "GET",                                
+            headers: new Headers({                    
+                'Access-Control-Allow-Origin':'*'
+            })
+        })
+        .then((response) =>{
+            if (response.ok){
+                return response.json();
+            }
+        })
+        .then((data) => {
+            setExploreStockElements(CreateExploreStocksCards(data.trendingStocks));
+            setTrendingStocksElements(data.trendingStocks.map(stock => {
+                return(
+                    <TrendingStocksElement key={stock.symbol} stock={stock}/>                        
+                )                
+            }))
+            setStockData(data);        
+        });                            
+    },[])    
 
     return(
         <div>
@@ -59,7 +79,7 @@ export default function Homepage(){
                 <h1 className='header--default header--exploreStocks'>Explore Stocks</h1>
                 <div className='exploreStocks--container--scrollBar'>
                     <div className='exploreStocks--container--cards'>                                                                
-                        {cardElements}
+                        {exploreStockElements}
                     </div>
                 </div>              
             </div>            
@@ -117,7 +137,7 @@ export default function Homepage(){
                         </Table> 
                     </div>
                 </div>
-            </div>                     
+            </div>                               
         </div>
     )
 }

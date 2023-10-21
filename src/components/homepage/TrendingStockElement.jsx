@@ -27,11 +27,11 @@ export default function TrendingStocksElement(props){
     )
 }
 
-// flytt i egen fil (helper...)
+// flytt til homepageUtils
 function isNumber(obj){
     if (obj !== null){  
         try{
-            let valueParsed = parseFloat(obj.replace(',', '.'));                
+            let valueParsed = parseFloat(obj.replace(',', '.').replace('−','-'));                
             if (!isNaN(valueParsed)){                                 
                 return true;                  
             }                    

@@ -8,3 +8,11 @@ export const CreateExploreStocksCards = (data) =>{
     }    
     return cardElements;
 }
+
+export const handleFetchErrors = response => {
+    if (!response.ok) {
+        console.log("STATUS: handlErrors melding:")
+      throw Error(response.statusText);
+    }
+    return response;
+  }

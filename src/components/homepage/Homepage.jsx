@@ -6,13 +6,15 @@ import loserData from './loserData.js';
 import Table from 'react-bootstrap/Table';
 import TrendingStocksElement from './TrendingStockElement';
 import GainersLosersElement from './GainersLosersElement';
-import { CreateExploreStocksCards } from './homepageUtils'; 
+import { CreateExploreStocksCards, handleFetchErrors } from './homepageUtils'; 
 
 
 export default function Homepage(){
     const[stockData, setStockData] = React.useState(null)
     const[exploreStockElements, setExploreStockElements] = React.useState([]);
     const[trendingStocksElements, setTrendingStocksElements] = React.useState([]);
+    const[stockGainerElements, setStockGainerElements] = React.useState([]);
+    const[stockLoserElements, setStockLoserElements] = React.useState([]);
     const[stockGainerData, setStockGainerData] = React.useState(gainerData);  
     const[stockLoserData, setStockLoserData] = React.useState(loserData);  
     /*
@@ -26,7 +28,7 @@ export default function Homepage(){
         return(
             <TrendingStocksElement key={stock.symbol} stock={stock}/>
         )
-    })      */
+    })      
     
     
     const stockGainerElements = stockGainerData.stockGainers.map(stock => {
@@ -34,12 +36,14 @@ export default function Homepage(){
             <GainersLosersElement key={stock.symbol} showStockGainers={true} stock={stock}/>
         )
     })
+    
 
     const stockLoserElements = stockLoserData.stockLosers.map(stock => {
         return(
             <GainersLosersElement key={stock.symbol} showStockGainers={false} stock={stock}/>
         )
     })    
+    */          
 
     React.useEffect(() => {        
         fetch("https://localhost:7166/Stock/test",{
@@ -48,11 +52,8 @@ export default function Homepage(){
                 'Access-Control-Allow-Origin':'*'
             })
         })
-        .then((response) =>{
-            if (response.ok){
-                return response.json();
-            }
-        })
+        .then(handleFetchErrors)
+        .then(response => response.json())       
         .then((data) => {
             setExploreStockElements(CreateExploreStocksCards(data.trendingStocks));
             setTrendingStocksElements(data.trendingStocks.map(stock => {
@@ -60,7 +61,20 @@ export default function Homepage(){
                     <TrendingStocksElement key={stock.symbol} stock={stock}/>                        
                 )                
             }))
+            setStockGainerElements(data.stockGainers.map(stock => {
+                return(
+                    <GainersLosersElement key={stock.symbol} showStockGainers={true} stock={stock}/>
+                )
+            }))      
+            setStockLoserElements(data.stockLosers.map(stock => {
+                return(
+                    <GainersLosersElement key={stock.symbol} showStockGainers={false} stock={stock}/>
+                )
+            }))      
             setStockData(data);        
+        })
+        .catch(error => {            
+            console.error("Failed to fetch:", error);
         });                            
     },[])    
 
@@ -140,4 +154,4 @@ export default function Homepage(){
             </div>                               
         </div>
     )
-}
+}   

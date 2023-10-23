@@ -73,8 +73,10 @@ export default function Homepage(){
             }))      
             setStockData(data);        
         })
-        .catch(error => {            
-            console.error("Failed to fetch:", error);
+        .catch(error => {   
+            // checking if there is a problem with the JSON structure
+            if (error instanceof SyntaxError){console.log('There was a SyntaxError', error);}
+            else{console.error("Failed to fetch:", error);}                     
         });                            
     },[])    
 

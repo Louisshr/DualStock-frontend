@@ -46,7 +46,7 @@ export default function Homepage(){
     */          
 
     React.useEffect(() => {        
-        fetch("https://localhost:7166/Stock/test",{
+        fetch("https://localhost:7166/Stock/GetTrendingStocksAndGainersLosers",{
             method: "GET",                                
             headers: new Headers({                    
                 'Access-Control-Allow-Origin':'*'

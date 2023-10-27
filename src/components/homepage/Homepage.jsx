@@ -3,9 +3,11 @@ import Card from './Card';
 //import data from './data.js';
 import gainerData from './gainerData.js';
 import loserData from './loserData.js';
+import appleData from './appleData.js';
 import Table from 'react-bootstrap/Table';
 import TrendingStocksElement from './TrendingStockElement';
 import GainersLosersElement from './GainersLosersElement';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { CreateExploreStocksCards, handleFetchErrors } from './homepageUtils'; 
 
 
@@ -15,8 +17,11 @@ export default function Homepage(){
     const[trendingStocksElements, setTrendingStocksElements] = React.useState([]);
     const[stockGainerElements, setStockGainerElements] = React.useState([]);
     const[stockLoserElements, setStockLoserElements] = React.useState([]);
+    const[userQuery, setUserQuery] = React.useState("");
     const[stockGainerData, setStockGainerData] = React.useState(gainerData);  
     const[stockLoserData, setStockLoserData] = React.useState(loserData);  
+    let navigate = useNavigate();
+   
     /*
     const cardElements = stockData.trendingStocks.map(stock => {
         return(
@@ -80,6 +85,48 @@ export default function Homepage(){
         });                            
     },[])    
 
+    function handleSearch(){
+        
+        async function fetchStockData(){
+            const symbol = "AAPL";
+            const url =  `https://localhost:7166/Stock/GetHistoricalDataForSpecificStock/${symbol}`;            
+            await fetch(url, {
+                method: "GET",                                
+                headers: new Headers({                    
+                    'Access-Control-Allow-Origin':'*'
+                })
+            })
+            .then(handleFetchErrors)
+            .then(response => response.json())
+            .then((data) =>{
+                console.log("fra server: " + data);
+                //data.daily.forEach(d => {console.log(d.volume)});
+                console.log(JSON.stringify(data));
+                /*
+                navigate('/stockInfoDisplay',{
+                    state:{
+                        daily: data.daily
+                    }
+                })*/
+            })
+            .catch(error => {   
+                console.error("Failed to fetch:", error);                                   
+            });              
+        }            
+           
+        let userQueryValidator = /^\S*^[A-Z]*$/gi;  
+        if (userQueryValidator.test(userQuery)){        
+            fetchStockData(); 
+        }else{
+            console.log("validering feilet");
+        }                                     
+    }
+
+    function handleUserQuery(event){
+        const {value} = event.target;
+        setUserQuery(value);
+    }
+        
     return(
         <div>
             <div className='outer--input--container'>
@@ -87,8 +134,10 @@ export default function Homepage(){
                     <input
                     type="text"
                     placeholder="Search for symbols..."
+                    value={userQuery}
+                    onChange={handleUserQuery}
                     />
-                    <img className='searchicon' src='/images/searchicon1.png' alt=''></img>
+                    <img onClick={handleSearch} className='searchicon' src='/images/searchicon1.png' alt=''></img>
                 </div>        
             </div>
             <div className='exploreStocks--container'>

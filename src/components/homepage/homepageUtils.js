@@ -11,7 +11,7 @@ export const CreateExploreStocksCards = (data) =>{
 
 export const handleFetchErrors = response => {
     if (!response.ok) {
-        console.log("STATUS: handlErrors melding:")
+        console.log("STATUS: handleErrors melding:")
       throw Error(response.statusText);
     }
     return response;

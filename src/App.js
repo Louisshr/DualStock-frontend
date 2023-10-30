@@ -4,7 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import Homepage from "./components/homepage/Homepage";
 import StockInfoDisplay from './components/StockInfoDisplay/StockInfoDisplay';
 import SharedLayout from './components/sharedLayout/SharedLayout';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 
 function App() {
   return (
@@ -12,7 +12,8 @@ function App() {
       <Routes>
         <Route path='/' element={<SharedLayout/>}>
           <Route index element={<Homepage/>}></Route>
-          <Route path='stockInfoDisplay' element={<StockInfoDisplay/>}></Route>
+          <Route path='stockInfoDisplay' element={<StockInfoDisplay/>}></Route>          
+          <Route path='*' element={<Navigate to="/"/>}/>
         </Route>
       </Routes>          
     </BrowserRouter>

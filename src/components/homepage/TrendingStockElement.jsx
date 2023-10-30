@@ -1,3 +1,5 @@
+import { isNumber } from "./homepageUtils";
+
 export default function TrendingStocksElement(props){
 
     let defaultStyles = {color: 'black'}
@@ -25,21 +27,4 @@ export default function TrendingStocksElement(props){
             {changePercentOK && <td className="tableRow--text--default" style={defaultStyles}>{props.stock.changePercent}%</td>}
         </tr>  
     )
-}
-
-// flytt til homepageUtils
-function isNumber(obj){
-    if (obj !== null){  
-        try{
-            let valueParsed = parseFloat(obj.replace(',', '.').replace('−','-'));                
-            if (!isNaN(valueParsed)){                                 
-                return true;                  
-            }                    
-        }
-        catch(error){
-            console.log("error: ", error.message);
-            return false;
-        }
-    }
-    return false;
 }

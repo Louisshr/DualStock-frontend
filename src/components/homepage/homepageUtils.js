@@ -16,3 +16,33 @@ export const handleFetchErrors = response => {
     }
     return response;
   }
+
+export function isNumber(obj){
+    if (obj !== null){  
+        try{
+            let valueParsed = parseFloat(obj.replace(',', '.').replace('−','-'));                
+            if (!isNaN(valueParsed)){                                 
+                return true;                  
+            }                    
+        }
+        catch(error){
+            console.log("error: ", error.message);
+            return false;
+        }
+    }
+    return false;
+}
+
+export function parseToNumber(obj){
+  if (obj !== null){  
+    try{
+        let valueParsed = parseFloat(obj.replace(',', '.').replace('−','-')); 
+        return valueParsed;                            
+    }
+    catch(error){
+        console.log("error: ", error.message);
+        return false;
+    }
+  }
+  return false;
+}

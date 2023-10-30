@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from './Card';
 //import data from './data.js';
 import gainerData from './gainerData.js';
 import loserData from './loserData.js';
@@ -87,9 +86,8 @@ export default function Homepage(){
 
     function handleSearch(){
         
-        async function fetchStockData(){
-            const symbol = "AAPL";
-            const url =  `https://localhost:7166/Stock/GetHistoricalDataForSpecificStock/${symbol}`;            
+        async function fetchStockData(){            
+            const url =  `https://localhost:7166/Stock/GetHistoricalDataForSpecificStock/${userQuery}`;            
             await fetch(url, {
                 method: "GET",                                
                 headers: new Headers({                    
@@ -102,12 +100,14 @@ export default function Homepage(){
                 console.log("fra server: " + data);
                 //data.daily.forEach(d => {console.log(d.volume)});
                 console.log(JSON.stringify(data));
-                /*
+                
                 navigate('/stockInfoDisplay',{
                     state:{
-                        daily: data.daily
+                        data: data,
+                        daily: data.daily,
+                        weekly: data.weekly
                     }
-                })*/
+                })
             })
             .catch(error => {   
                 console.error("Failed to fetch:", error);                                   
@@ -119,7 +119,16 @@ export default function Homepage(){
             fetchStockData(); 
         }else{
             console.log("validering feilet");
-        }                                     
+        }      
+        
+        /*
+        navigate('/stockInfoDisplay',{
+            state:{
+                data: appleData,
+                daily: appleData.daily,
+                weekly: appleData.weekly
+            }
+        })*/
     }
 
     function handleUserQuery(event){
